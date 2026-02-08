@@ -7,7 +7,7 @@ class Entity:
         self.speed = speed
         self.active = True
 
-    def update(self):
+    def update(self, dt):
         pass
 
     def draw(self, screen):

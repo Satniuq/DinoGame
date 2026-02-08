@@ -4,13 +4,14 @@ import random
 from settings import *
 from entities.base import Entity
 
+
 class Enemy(Entity):
     def __init__(self, rect, speed):
         super().__init__(rect, speed)
         self.active = True
-        self.resolved = False   # 👈 MUITO IMPORTANTE
+        self.resolved = False  # 👈 MUITO IMPORTANTE
 
-    def update(self):
+    def update(self, dt):
         self.rect.x -= self.speed
         if self.rect.right < 0:
             self.active = False

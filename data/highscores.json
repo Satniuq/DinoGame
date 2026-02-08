@@ -1,18 +1,42 @@
 [
   {
     "player": "jose",
+    "score": 34
+  },
+  {
+    "player": "jose",
+    "score": 31
+  },
+  {
+    "player": "jose",
+    "score": 23
+  },
+  {
+    "player": "jose",
+    "score": 21
+  },
+  {
+    "player": "4",
     "score": 21
   },
   {
     "player": "jose",
-    "score": 14
+    "score": 21
   },
   {
     "player": "jose",
-    "score": 6
+    "score": 19
   },
   {
-    "player": "koe",
-    "score": 5
+    "player": "jose",
+    "score": 18
+  },
+  {
+    "player": "jose",
+    "score": 17
+  },
+  {
+    "player": "jose",
+    "score": 14
   }
 ]

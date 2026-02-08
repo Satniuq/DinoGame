@@ -24,3 +24,18 @@ class EnemyPassed(Event):
 
 class LevelCompleted(Event):
     pass
+
+class LevelWon(Event):
+    pass
+
+class LevelFailed(Event):
+    pass
+
+class BossDefeated(Event):
+    pass
+
+class BossHit:
+    def __init__(self, boss, damage=1):
+        self.boss = boss
+        self.damage = damage
+

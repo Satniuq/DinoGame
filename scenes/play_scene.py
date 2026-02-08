@@ -1,4 +1,3 @@
-# scenes/play_scene.py
 import pygame
 from scenes.base_scene import BaseScene
 from scenes.fail_scene import FailScene
@@ -21,50 +20,75 @@ from systems.lifetime_system import LifetimeSystem
 
 from ui.hud import HUD
 from entities.player import Player
-from settings import WHITE, WIDTH, GROUND_Y
+from settings import WHITE, WIDTH, HEIGHT, GROUND_Y, GAME_PROFILE
 
 
 class PlayScene(BaseScene):
     def __init__(self, manager, level=1, player_name="Jogador"):
         super().__init__(manager)
 
-        # 🎮 Identidade e score
+        # -----------------
+        # PAUSA
+        self.paused = False
+
+        # -----------------
+        # Identidade e score
         self.player_name = player_name
         self.score = 0.0
-
-        # 📈 Nível actual
         self.current_level = level
 
-        # 🔌 Core do jogo
+        # -----------------
+        # Core
         self.bus = EventBus()
         self.world = World()
         self.world.player = Player()
 
-        # 🌍 Definição e progresso do nível
+        # -----------------
+        # Nível
         self.level_def = LevelDefinition(level=self.current_level)
         self.progress = LevelProgress()
 
-        # ⚙️ Sistemas
+        # -----------------
+        # Sistemas
         self.input = InputSystem()
         self.movement = MovementSystem()
         self.spawn = SpawnSystem(self.level_def)
         self.collision = CollisionSystem(self.bus)
-        self.combat = CombatSystem(self.bus, self.world.player, self.progress)
+        self.combat = CombatSystem(self.bus, self.world.player)
         self.level = LevelSystem(self.bus, self.level_def, self.progress)
         self.lifetime = LifetimeSystem()
 
-        # 📡 Eventos
+        # -----------------
+        # Eventos
         self.bus.subscribe(PlayerDied, self.on_player_died)
         self.bus.subscribe(LevelCompleted, self.on_level_completed)
 
-        # 🖥️ HUD
+        # -----------------
+        # HUD
         self.hud = HUD()
 
-    def handle_event(self, event):
-        self.input.handle(event, self.world)
+    # =====================================================
+    # INPUT / PAUSA
+    # =====================================================
+    def toggle_pause(self):
+        self.paused = not self.paused
 
+    def handle_event(self, event):
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            self.toggle_pause()
+            return
+
+        if not self.paused:
+            self.input.handle(event, self.world)
+
+    # =====================================================
+    # UPDATE
+    # =====================================================
     def update(self, dt):
-        # ⏱️ Score por tempo sobrevivido
+        if self.paused:
+            return
+
+        # score por tempo
         self.score += dt
 
         self.spawn.update(self.world, self.progress)
@@ -73,7 +97,11 @@ class PlayScene(BaseScene):
         self.lifetime.update(self.world)
         self.level.update()
 
+    # =====================================================
+    # DRAW
+    # =====================================================
     def draw(self, screen):
+        # fundo
         screen.fill(WHITE)
 
         # chão
@@ -89,14 +117,14 @@ class PlayScene(BaseScene):
         for o in self.world.obstacles:
             o.draw(screen)
 
-        # inimigos
+        # inimigos (inclui boss)
         for e in self.world.enemies:
             e.draw(screen)
 
         # jogador
         self.world.player.draw(screen)
 
-        # HUD (score pode ser integrado depois)
+        # HUD
         self.hud.draw(
             screen,
             self.level_def,
@@ -105,8 +133,38 @@ class PlayScene(BaseScene):
             self.score,
         )
 
+        # -----------------
+        # DEV MODE overlay
+        if GAME_PROFILE == "DEV":
+            font = pygame.font.SysFont(None, 18)
+            txt = font.render("DEV MODE", True, (200, 50, 50))
+            screen.blit(txt, (10, 10))
 
-    # ☠️ MORTE DO JOGADOR
+        # -----------------
+        # PAUSA overlay
+        if self.paused:
+            overlay = pygame.Surface((WIDTH, HEIGHT))
+            overlay.set_alpha(160)
+            overlay.fill((0, 0, 0))
+            screen.blit(overlay, (0, 0))
+
+            font = pygame.font.SysFont(None, 48)
+            text = font.render("PAUSA", True, (255, 255, 255))
+            rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
+            screen.blit(text, rect)
+
+            font_small = pygame.font.SysFont(None, 24)
+            hint = font_small.render(
+                "ESC para continuar", True, (200, 200, 200)
+            )
+            hint_rect = hint.get_rect(
+                center=(WIDTH // 2, HEIGHT // 2 + 40)
+            )
+            screen.blit(hint, hint_rect)
+
+    # =====================================================
+    # EVENTOS
+    # =====================================================
     def on_player_died(self, event):
         self.scene_manager.change_scene(
             FailScene(
@@ -117,9 +175,26 @@ class PlayScene(BaseScene):
             )
         )
 
-    # 🏁 FIM DO NÍVEL
     def on_level_completed(self, event):
-        ratio = self.progress.killed / self.level_def.total_air_enemies
+        # -----------------
+        # NÍVEL COM BOSS
+        if self.level_def.has_boss:
+            self.scene_manager.change_scene(
+                WinScene(
+                    self.scene_manager,
+                    self.current_level,
+                    self.player_name,
+                    self.score,
+                )
+            )
+            return
+
+        # -----------------
+        # NÍVEL NORMAL
+        ratio = (
+            self.progress.killed
+            / self.level_def.total_air_enemies
+        )
 
         if ratio >= self.level_def.min_kill_ratio:
             self.scene_manager.change_scene(

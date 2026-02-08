@@ -2,13 +2,14 @@
 import pygame
 from settings import *
 
+
 class Projectile:
     def __init__(self, x, y, speed):
         self.rect = pygame.Rect(x, y, 25, 15)
         self.speed = speed
         self.active = True
 
-    def update(self):
+    def update(self, dt):
         self.rect.x += self.speed
         if self.rect.left > WIDTH:
             self.active = False

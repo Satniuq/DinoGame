@@ -2,13 +2,14 @@
 import pygame
 from settings import *
 
+
 class Obstacle:
     def __init__(self, rect, speed):
         self.rect = rect
         self.speed = speed
         self.active = True
 
-    def update(self):
+    def update(self, dt):
         self.rect.x -= self.speed
         if self.rect.right < 0:
             self.active = False

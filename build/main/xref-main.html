@@ -24,8 +24,7 @@ imports:
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#copyreg">copyreg</a>
- &#8226;   <a href="#core.collision_result">core.collision_result</a>
- &#8226;   <a href="#core.game_state">core.game_state</a>
+ &#8226;   <a href="#core.game">core.game</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
  &#8226;   <a href="#encodings.ascii">encodings.ascii</a>
@@ -148,7 +147,6 @@ imports:
  &#8226;   <a href="#encodings.utf_8_sig">encodings.utf_8_sig</a>
  &#8226;   <a href="#encodings.uu_codec">encodings.uu_codec</a>
  &#8226;   <a href="#encodings.zlib_codec">encodings.zlib_codec</a>
- &#8226;   <a href="#entities.player">entities.player</a>
  &#8226;   <a href="#enum">enum</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#genericpath">genericpath</a>
@@ -157,9 +155,6 @@ imports:
  &#8226;   <a href="#keyword">keyword</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
- &#8226;   <a href="#managers.collision_manager">managers.collision_manager</a>
- &#8226;   <a href="#managers.level_manager">managers.level_manager</a>
- &#8226;   <a href="#managers.spawn_manager">managers.spawn_manager</a>
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#os">os</a>
@@ -176,7 +171,6 @@ imports:
  &#8226;   <a href="#re._constants">re._constants</a>
  &#8226;   <a href="#re._parser">re._parser</a>
  &#8226;   <a href="#reprlib">reprlib</a>
- &#8226;   <a href="#settings">settings</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
@@ -4475,43 +4469,81 @@ imported by:
   <a target="code" href="-" type="text/plain"><tt>core</tt></a>
 <span class="moduletype">NamespacePackage</span>  <div class="import">
 imported by:
-    <a href="#core.collision_result">core.collision_result</a>
- &#8226;   <a href="#core.game_state">core.game_state</a>
+    <a href="#core.events">core.events</a>
+ &#8226;   <a href="#core.events_bus">core.events_bus</a>
+ &#8226;   <a href="#core.game">core.game</a>
+ &#8226;   <a href="#core.scene_manager">core.scene_manager</a>
 
   </div>
 
 </div>
 
 <div class="node">
-  <a name="core.collision_result"></a>
-  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/core/collision_result.py" type="text/plain"><tt>core.collision_result</tt></a>
+  <a name="core.events"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/core/events.py" type="text/plain"><tt>core.events</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#core">core</a>
- &#8226;   <a href="#enum">enum</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#main.py">main.py</a>
- &#8226;   <a href="#managers.collision_manager">managers.collision_manager</a>
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+ &#8226;   <a href="#systems.collision_system">systems.collision_system</a>
+ &#8226;   <a href="#systems.combat_system">systems.combat_system</a>
+ &#8226;   <a href="#systems.level_system">systems.level_system</a>
 
   </div>
 
 </div>
 
 <div class="node">
-  <a name="core.game_state"></a>
-  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/core/game_state.py" type="text/plain"><tt>core.game_state</tt></a>
+  <a name="core.events_bus"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/core/events_bus.py" type="text/plain"><tt>core.events_bus</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#core">core</a>
- &#8226;   <a href="#enum">enum</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.game"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/core/game.py" type="text/plain"><tt>core.game</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core">core</a>
+ &#8226;   <a href="#core.scene_manager">core.scene_manager</a>
+ &#8226;   <a href="#pygame">pygame</a>
+ &#8226;   <a href="#scenes.menu_scene">scenes.menu_scene</a>
+ &#8226;   <a href="#settings">settings</a>
 
   </div>
   <div class="import">
 imported by:
     <a href="#main.py">main.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.scene_manager"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/core/scene_manager.py" type="text/plain"><tt>core.scene_manager</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core">core</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.game">core.game</a>
 
   </div>
 
@@ -4771,6 +4803,73 @@ imports:
   <div class="import">
 imported by:
     <a href="#curses">curses</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="data"></a>
+  <a target="code" href="-" type="text/plain"><tt>data</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#data.highscore_repository">data.highscore_repository</a>
+ &#8226;   <a href="#data.player_repository">data.player_repository</a>
+ &#8226;   <a href="#data.storage">data.storage</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="data.highscore_repository"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/data/highscore_repository.py" type="text/plain"><tt>data.highscore_repository</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#data">data</a>
+ &#8226;   <a href="#data.storage">data.storage</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.fail_scene">scenes.fail_scene</a>
+ &#8226;   <a href="#scenes.menu_scene">scenes.menu_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="data.player_repository"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/data/player_repository.py" type="text/plain"><tt>data.player_repository</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#data">data</a>
+ &#8226;   <a href="#data.storage">data.storage</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.menu_scene">scenes.menu_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="data.storage"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/data/storage.py" type="text/plain"><tt>data.storage</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#data">data</a>
+ &#8226;   <a href="#json">json</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#data.highscore_repository">data.highscore_repository</a>
+ &#8226;   <a href="#data.player_repository">data.player_repository</a>
 
   </div>
 
@@ -8002,6 +8101,8 @@ imported by:
 <span class="moduletype">NamespacePackage</span>  <div class="import">
 imported by:
     <a href="#entities.base">entities.base</a>
+ &#8226;   <a href="#entities.boss">entities.boss</a>
+ &#8226;   <a href="#entities.boss_wave">entities.boss_wave</a>
  &#8226;   <a href="#entities.enemies">entities.enemies</a>
  &#8226;   <a href="#entities.obstacles">entities.obstacles</a>
  &#8226;   <a href="#entities.player">entities.player</a>
@@ -8022,7 +8123,49 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#entities.enemies">entities.enemies</a>
+    <a href="#entities.boss">entities.boss</a>
+ &#8226;   <a href="#entities.enemies">entities.enemies</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="entities.boss"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/entities/boss.py" type="text/plain"><tt>entities.boss</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#entities">entities</a>
+ &#8226;   <a href="#entities.base">entities.base</a>
+ &#8226;   <a href="#entities.boss_wave">entities.boss_wave</a>
+ &#8226;   <a href="#pygame">pygame</a>
+ &#8226;   <a href="#random">random</a>
+ &#8226;   <a href="#settings">settings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#systems.collision_system">systems.collision_system</a>
+ &#8226;   <a href="#systems.combat_system">systems.combat_system</a>
+ &#8226;   <a href="#systems.spawn_system">systems.spawn_system</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="entities.boss_wave"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/entities/boss_wave.py" type="text/plain"><tt>entities.boss_wave</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#entities">entities</a>
+ &#8226;   <a href="#pygame">pygame</a>
+ &#8226;   <a href="#settings">settings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#entities.boss">entities.boss</a>
 
   </div>
 
@@ -8042,9 +8185,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#managers.collision_manager">managers.collision_manager</a>
- &#8226;   <a href="#managers.level_manager">managers.level_manager</a>
- &#8226;   <a href="#managers.spawn_manager">managers.spawn_manager</a>
+    <a href="#systems.spawn_system">systems.spawn_system</a>
 
   </div>
 
@@ -8062,7 +8203,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#managers.spawn_manager">managers.spawn_manager</a>
+    <a href="#systems.spawn_system">systems.spawn_system</a>
 
   </div>
 
@@ -8081,7 +8222,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#main.py">main.py</a>
+    <a href="#scenes.play_scene">scenes.play_scene</a>
 
   </div>
 
@@ -8126,8 +8267,6 @@ imported by:
  &#8226;   <a href="#asyncio.sslproto">asyncio.sslproto</a>
  &#8226;   <a href="#asyncio.timeouts">asyncio.timeouts</a>
  &#8226;   <a href="#calendar">calendar</a>
- &#8226;   <a href="#core.collision_result">core.collision_result</a>
- &#8226;   <a href="#core.game_state">core.game_state</a>
  &#8226;   <a href="#http">http</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#main.py">main.py</a>
@@ -9856,6 +9995,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#charset_normalizer.models">charset_normalizer.models</a>
+ &#8226;   <a href="#data.storage">data.storage</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
@@ -10078,75 +10218,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="managers"></a>
-  <a target="code" href="-" type="text/plain"><tt>managers</tt></a>
-<span class="moduletype">NamespacePackage</span>  <div class="import">
-imported by:
-    <a href="#managers.collision_manager">managers.collision_manager</a>
- &#8226;   <a href="#managers.level_manager">managers.level_manager</a>
- &#8226;   <a href="#managers.spawn_manager">managers.spawn_manager</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="managers.collision_manager"></a>
-  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/managers/collision_manager.py" type="text/plain"><tt>managers.collision_manager</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#core.collision_result">core.collision_result</a>
- &#8226;   <a href="#entities.enemies">entities.enemies</a>
- &#8226;   <a href="#managers">managers</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#main.py">main.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="managers.level_manager"></a>
-  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/managers/level_manager.py" type="text/plain"><tt>managers.level_manager</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#entities.enemies">entities.enemies</a>
- &#8226;   <a href="#managers">managers</a>
- &#8226;   <a href="#settings">settings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#main.py">main.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="managers.spawn_manager"></a>
-  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/managers/spawn_manager.py" type="text/plain"><tt>managers.spawn_manager</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#entities.enemies">entities.enemies</a>
- &#8226;   <a href="#entities.obstacles">entities.obstacles</a>
- &#8226;   <a href="#managers">managers</a>
- &#8226;   <a href="#random">random</a>
- &#8226;   <a href="#settings">settings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#main.py">main.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="marshal"></a>
   <tt>marshal</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
@@ -10180,6 +10251,7 @@ imported by:
  &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
  &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#statistics">statistics</a>
+ &#8226;   <a href="#systems.spawn_system">systems.spawn_system</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
 
   </div>
@@ -18564,7 +18636,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib.metadata">importlib.metadata</a>
+    <a href="#data.storage">data.storage</a>
+ &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
  &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
@@ -19286,7 +19359,10 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#entities.base">entities.base</a>
+    <a href="#core.game">core.game</a>
+ &#8226;   <a href="#entities.base">entities.base</a>
+ &#8226;   <a href="#entities.boss">entities.boss</a>
+ &#8226;   <a href="#entities.boss_wave">entities.boss_wave</a>
  &#8226;   <a href="#entities.enemies">entities.enemies</a>
  &#8226;   <a href="#entities.obstacles">entities.obstacles</a>
  &#8226;   <a href="#entities.player">entities.player</a>
@@ -19331,7 +19407,13 @@ imported by:
  &#8226;   <a href="#pygame.time">pygame.time</a>
  &#8226;   <a href="#pygame.transform">pygame.transform</a>
  &#8226;   <a href="#pygame.version">pygame.version</a>
+ &#8226;   <a href="#scenes.fail_scene">scenes.fail_scene</a>
+ &#8226;   <a href="#scenes.menu_scene">scenes.menu_scene</a>
+ &#8226;   <a href="#scenes.play_scene">scenes.play_scene</a>
+ &#8226;   <a href="#scenes.win_scene">scenes.win_scene</a>
  &#8226;   <a href="#settings">settings</a>
+ &#8226;   <a href="#systems.input_system">systems.input_system</a>
+ &#8226;   <a href="#ui.hud">ui.hud</a>
 
   </div>
 
@@ -20091,14 +20173,15 @@ imports:
 imported by:
     <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.utils">email.utils</a>
+ &#8226;   <a href="#entities.boss">entities.boss</a>
  &#8226;   <a href="#entities.enemies">entities.enemies</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
- &#8226;   <a href="#managers.spawn_manager">managers.spawn_manager</a>
  &#8226;   <a href="#secrets">secrets</a>
  &#8226;   <a href="#setuptools._vendor.jaraco.collections">setuptools._vendor.jaraco.collections</a>
  &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
  &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#statistics">statistics</a>
+ &#8226;   <a href="#systems.spawn_system">systems.spawn_system</a>
  &#8226;   <a href="#tempfile">tempfile</a>
 
   </div>
@@ -20480,6 +20563,141 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="scenes"></a>
+  <a target="code" href="-" type="text/plain"><tt>scenes</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#scenes.base_scene">scenes.base_scene</a>
+ &#8226;   <a href="#scenes.fail_scene">scenes.fail_scene</a>
+ &#8226;   <a href="#scenes.menu_scene">scenes.menu_scene</a>
+ &#8226;   <a href="#scenes.play_scene">scenes.play_scene</a>
+ &#8226;   <a href="#scenes.win_scene">scenes.win_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="scenes.base_scene"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/scenes/base_scene.py" type="text/plain"><tt>scenes.base_scene</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#scenes">scenes</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.fail_scene">scenes.fail_scene</a>
+ &#8226;   <a href="#scenes.menu_scene">scenes.menu_scene</a>
+ &#8226;   <a href="#scenes.play_scene">scenes.play_scene</a>
+ &#8226;   <a href="#scenes.win_scene">scenes.win_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="scenes.fail_scene"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/scenes/fail_scene.py" type="text/plain"><tt>scenes.fail_scene</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#data.highscore_repository">data.highscore_repository</a>
+ &#8226;   <a href="#pygame">pygame</a>
+ &#8226;   <a href="#scenes">scenes</a>
+ &#8226;   <a href="#scenes.base_scene">scenes.base_scene</a>
+ &#8226;   <a href="#scenes.menu_scene">scenes.menu_scene</a>
+ &#8226;   <a href="#scenes.play_scene">scenes.play_scene</a>
+ &#8226;   <a href="#settings">settings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="scenes.menu_scene"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/scenes/menu_scene.py" type="text/plain"><tt>scenes.menu_scene</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#data.highscore_repository">data.highscore_repository</a>
+ &#8226;   <a href="#data.player_repository">data.player_repository</a>
+ &#8226;   <a href="#pygame">pygame</a>
+ &#8226;   <a href="#scenes">scenes</a>
+ &#8226;   <a href="#scenes.base_scene">scenes.base_scene</a>
+ &#8226;   <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.game">core.game</a>
+ &#8226;   <a href="#scenes.fail_scene">scenes.fail_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="scenes.play_scene"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/scenes/play_scene.py" type="text/plain"><tt>scenes.play_scene</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.events">core.events</a>
+ &#8226;   <a href="#core.events_bus">core.events_bus</a>
+ &#8226;   <a href="#entities.player">entities.player</a>
+ &#8226;   <a href="#pygame">pygame</a>
+ &#8226;   <a href="#scenes">scenes</a>
+ &#8226;   <a href="#scenes.base_scene">scenes.base_scene</a>
+ &#8226;   <a href="#scenes.fail_scene">scenes.fail_scene</a>
+ &#8226;   <a href="#scenes.win_scene">scenes.win_scene</a>
+ &#8226;   <a href="#settings">settings</a>
+ &#8226;   <a href="#systems.collision_system">systems.collision_system</a>
+ &#8226;   <a href="#systems.combat_system">systems.combat_system</a>
+ &#8226;   <a href="#systems.input_system">systems.input_system</a>
+ &#8226;   <a href="#systems.level_system">systems.level_system</a>
+ &#8226;   <a href="#systems.lifetime_system">systems.lifetime_system</a>
+ &#8226;   <a href="#systems.movement_system">systems.movement_system</a>
+ &#8226;   <a href="#systems.spawn_system">systems.spawn_system</a>
+ &#8226;   <a href="#ui.hud">ui.hud</a>
+ &#8226;   <a href="#world.level_definition">world.level_definition</a>
+ &#8226;   <a href="#world.level_progress">world.level_progress</a>
+ &#8226;   <a href="#world.world">world.world</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.fail_scene">scenes.fail_scene</a>
+ &#8226;   <a href="#scenes.menu_scene">scenes.menu_scene</a>
+ &#8226;   <a href="#scenes.win_scene">scenes.win_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="scenes.win_scene"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/scenes/win_scene.py" type="text/plain"><tt>scenes.win_scene</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pygame">pygame</a>
+ &#8226;   <a href="#scenes">scenes</a>
+ &#8226;   <a href="#scenes.base_scene">scenes.base_scene</a>
+ &#8226;   <a href="#scenes.play_scene">scenes.play_scene</a>
+ &#8226;   <a href="#settings">settings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="secrets"></a>
   <a target="code" href="///C:/Users/vanes/AppData/Local/Programs/Python/Python313/Lib/secrets.py" type="text/plain"><tt>secrets</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -20548,13 +20766,17 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#entities.enemies">entities.enemies</a>
+    <a href="#core.game">core.game</a>
+ &#8226;   <a href="#entities.boss">entities.boss</a>
+ &#8226;   <a href="#entities.boss_wave">entities.boss_wave</a>
+ &#8226;   <a href="#entities.enemies">entities.enemies</a>
  &#8226;   <a href="#entities.obstacles">entities.obstacles</a>
  &#8226;   <a href="#entities.player">entities.player</a>
  &#8226;   <a href="#entities.projectiles">entities.projectiles</a>
- &#8226;   <a href="#main.py">main.py</a>
- &#8226;   <a href="#managers.level_manager">managers.level_manager</a>
- &#8226;   <a href="#managers.spawn_manager">managers.spawn_manager</a>
+ &#8226;   <a href="#scenes.fail_scene">scenes.fail_scene</a>
+ &#8226;   <a href="#scenes.play_scene">scenes.play_scene</a>
+ &#8226;   <a href="#scenes.win_scene">scenes.win_scene</a>
+ &#8226;   <a href="#world.level_definition">world.level_definition</a>
 
   </div>
 
@@ -27205,6 +27427,146 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="systems"></a>
+  <a target="code" href="-" type="text/plain"><tt>systems</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#systems.collision_system">systems.collision_system</a>
+ &#8226;   <a href="#systems.combat_system">systems.combat_system</a>
+ &#8226;   <a href="#systems.input_system">systems.input_system</a>
+ &#8226;   <a href="#systems.level_system">systems.level_system</a>
+ &#8226;   <a href="#systems.lifetime_system">systems.lifetime_system</a>
+ &#8226;   <a href="#systems.movement_system">systems.movement_system</a>
+ &#8226;   <a href="#systems.spawn_system">systems.spawn_system</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="systems.collision_system"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/systems/collision_system.py" type="text/plain"><tt>systems.collision_system</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.events">core.events</a>
+ &#8226;   <a href="#entities.boss">entities.boss</a>
+ &#8226;   <a href="#systems">systems</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="systems.combat_system"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/systems/combat_system.py" type="text/plain"><tt>systems.combat_system</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.events">core.events</a>
+ &#8226;   <a href="#entities.boss">entities.boss</a>
+ &#8226;   <a href="#systems">systems</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="systems.input_system"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/systems/input_system.py" type="text/plain"><tt>systems.input_system</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pygame">pygame</a>
+ &#8226;   <a href="#systems">systems</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="systems.level_system"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/systems/level_system.py" type="text/plain"><tt>systems.level_system</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.events">core.events</a>
+ &#8226;   <a href="#systems">systems</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="systems.lifetime_system"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/systems/lifetime_system.py" type="text/plain"><tt>systems.lifetime_system</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#systems">systems</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="systems.movement_system"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/systems/movement_system.py" type="text/plain"><tt>systems.movement_system</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#systems">systems</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="systems.spawn_system"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/systems/spawn_system.py" type="text/plain"><tt>systems.spawn_system</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#entities.boss">entities.boss</a>
+ &#8226;   <a href="#entities.enemies">entities.enemies</a>
+ &#8226;   <a href="#entities.obstacles">entities.obstacles</a>
+ &#8226;   <a href="#math">math</a>
+ &#8226;   <a href="#random">random</a>
+ &#8226;   <a href="#systems">systems</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="tarfile"></a>
   <a target="code" href="///C:/Users/vanes/AppData/Local/Programs/Python/Python313/Lib/tarfile.py" type="text/plain"><tt>tarfile</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -28080,6 +28442,34 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="ui"></a>
+  <a target="code" href="-" type="text/plain"><tt>ui</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#ui.hud">ui.hud</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ui.hud"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/ui/hud.py" type="text/plain"><tt>ui.hud</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pygame">pygame</a>
+ &#8226;   <a href="#ui">ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="unicodedata"></a>
   <tt>unicodedata</tt> <span class="moduletype"><tt>C:\Users\vanes\AppData\Local\Programs\Python\Python313\DLLs\unicodedata.pyd</tt></span>  <div class="import">
 imported by:
@@ -28810,6 +29200,68 @@ imported by:
  &#8226;   <a href="#setuptools._vendor.platformdirs.windows">setuptools._vendor.platformdirs.windows</a>
  &#8226;   <a href="#setuptools.msvc">setuptools.msvc</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="world"></a>
+  <a target="code" href="-" type="text/plain"><tt>world</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#world.level_definition">world.level_definition</a>
+ &#8226;   <a href="#world.level_progress">world.level_progress</a>
+ &#8226;   <a href="#world.world">world.world</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="world.level_definition"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/world/level_definition.py" type="text/plain"><tt>world.level_definition</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#settings">settings</a>
+ &#8226;   <a href="#world">world</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="world.level_progress"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/world/level_progress.py" type="text/plain"><tt>world.level_progress</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#world">world</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="world.world"></a>
+  <a target="code" href="///C:/Users/vanes/Documents/DinoGame/world/world.py" type="text/plain"><tt>world.world</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#world">world</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#scenes.play_scene">scenes.play_scene</a>
 
   </div>
 

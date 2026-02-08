@@ -1,32 +1,60 @@
 # systems/collision_system.py
-from core.events import PlayerHit, EnemyKilled, EnemyPassed
+from core.events import (
+    PlayerHit,
+    EnemyKilled,
+    EnemyPassed,
+    BossHit,
+)
+from entities.boss import BossEnemy
+
 
 class CollisionSystem:
     def __init__(self, bus):
         self.bus = bus
 
     def update(self, world):
-        # -------- INIMIGOS --------
+        player_hit = False  # evita múltiplos hits no mesmo frame
+
+        # ======================
+        # INIMIGOS / BOSS
+        # ======================
         for enemy in world.enemies:
-            # projécteis ↔ inimigos
+
+            # -------- projécteis do jogador ↔ inimigos --------
             for proj in world.player.projectiles:
-                if proj.active and enemy.active and proj.rect.colliderect(enemy.rect):
+                if (
+                    proj.active
+                    and enemy.active
+                    and proj.rect.colliderect(enemy.rect)
+                ):
                     proj.active = False
-                    if not enemy.resolved:
-                        enemy.resolved = True
-                        self.bus.emit(EnemyKilled(enemy))
 
-            # player ↔ inimigos
+                    # --- BOSS ---
+                    if isinstance(enemy, BossEnemy):
+                        self.bus.emit(BossHit(enemy, damage=1))
+
+                    # --- INIMIGO NORMAL ---
+                    else:
+                        if not enemy.resolved:
+                            enemy.resolved = True
+                            self.bus.emit(EnemyKilled(enemy))
+
+            # -------- player ↔ inimigos --------
             if enemy.active and world.player.rect.colliderect(enemy.rect):
-                self.bus.emit(PlayerHit())
+                if not player_hit:
+                    self.bus.emit(PlayerHit())
+                    player_hit = True
 
-            # inimigo passou
+            # -------- inimigo passou --------
             if not enemy.active and not enemy.resolved:
                 enemy.resolved = True
                 self.bus.emit(EnemyPassed(enemy))
 
-        # -------- OBSTÁCULOS --------
+        # ======================
+        # OBSTÁCULOS
+        # ======================
         for obs in world.obstacles:
-            # chamas NÃO afectam obstáculos → nada aqui
             if obs.active and world.player.rect.colliderect(obs.rect):
-                self.bus.emit(PlayerHit())
+                if not player_hit:
+                    self.bus.emit(PlayerHit())
+                    player_hit = True
