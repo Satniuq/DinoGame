@@ -1,7 +1,6 @@
-# core/game.py
 import pygame
 from core.scene_manager import SceneManager
-from scenes.play_scene import PlayScene
+from scenes.menu_scene import MenuScene
 from settings import WIDTH, HEIGHT, FPS
 
 class Game:
@@ -13,7 +12,10 @@ class Game:
         self.running = True
 
         self.scene_manager = SceneManager()
-        self.scene_manager.change_scene(PlayScene(self.scene_manager))
+        # 👇 COMEÇA NO MENU
+        self.scene_manager.change_scene(
+            MenuScene(self.scene_manager)
+        )
 
     def run(self):
         while self.running:

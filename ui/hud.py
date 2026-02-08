@@ -1,11 +1,10 @@
-# ui/hud.py
 import pygame
 
 class HUD:
     def __init__(self):
         self.font = pygame.font.SysFont(None, 24)
 
-    def draw(self, screen, level_def, progress, player):
+    def draw(self, screen, level_def, progress, player, score=None):
         resolved = progress.killed + progress.passed
 
         txt = (
@@ -19,3 +18,11 @@ class HUD:
 
         surf = self.font.render(txt, True, (0, 0, 0))
         screen.blit(surf, (10, 10))
+
+        if score is not None:
+            score_surf = self.font.render(
+                f"Score: {int(score)}",
+                True,
+                (0, 0, 0),
+            )
+            screen.blit(score_surf, (10, 35))
